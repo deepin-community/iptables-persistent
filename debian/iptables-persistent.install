@@ -1,0 +1,5 @@
+#! /usr/bin/dh-exec
+iptb-expflush-plugin        usr/share/netfilter-persistent/
+plugins/15-ip4tables        usr/share/netfilter-persistent/plugins.d/
+plugins/25-ip6tables        usr/share/netfilter-persistent/plugins.d/
+debian/iptables.override => lib/systemd/system/netfilter-persistent.service.d/iptables.conf

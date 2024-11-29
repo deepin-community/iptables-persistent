@@ -1,0 +1,125 @@
+#!/bin/sh
+
+# This file is part of netfilter-persistent
+# (was iptables-persistent)
+# Copyright (C) 2024, Emmanuel BENOÎT <tseeker@nocternity.net>
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation, either version 3
+# of the License, or (at your option) any later version.
+#
+# This script manages flushing some chains either explicitly or
+# based on the contents of /etc/iptables/rules.v[46] when the
+# --no-flush option is being used for ip{6,}tables-restore.
+
+set -e
+
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# Source configuration
+if [ -f "/etc/default/netfilter-persistent" ]; then
+    . /etc/default/netfilter-persistent
+fi
+
+case "`basename $0`" in
+	*iptb4*)
+		RULES_FILE=/etc/iptables/rules.v4
+		IPTB_CMD=iptables
+		RESTORE_NOFLUSH="${IPTABLES_RESTORE_NOFLUSH}"
+		EXPLICIT_FLUSH="${IPTABLES_EXPLICIT_FLUSH}"
+		;;
+	*iptb6*)
+		RULES_FILE=/etc/iptables/rules.v6
+		IPTB_CMD=ip6tables
+		RESTORE_NOFLUSH="${IP6TABLES_RESTORE_NOFLUSH}"
+		EXPLICIT_FLUSH="${IP6TABLES_EXPLICIT_FLUSH}"
+		;;
+	*)
+		echo "Unexpected file name, must contain either iptb4 or iptb6" >&2
+		exit 1
+esac
+
+read_existing_rules()
+{
+	if [ ! -f $RULES_FILE ]; then
+		return
+	fi
+
+	local cur_table=""
+	local found=""
+	while read file_line; do
+		case "$file_line" in
+			\**)
+				cur_table="`echo "$file_line" | cut -c2-`"
+				;;
+			-A*)
+				local chain="`echo "x$file_line" | cut -f2 -d' '`"
+				if [ "${cur_table}x" = "x" ]; then
+					echo "Found chain \`$chain' before table start" >&2
+				else
+					local must_add="${cur_table}.${chain}"
+					if ! echo "$found" | grep -qw "$must_add" ; then
+						if [ "${found}x" != "x" ]; then
+							found="${found},"
+						fi
+						found="${found}${must_add}"
+					fi
+				fi
+				;;
+			*)
+				;;
+		esac
+	done < $RULES_FILE
+
+	echo "$found"
+}
+
+flush_rules()
+{
+	if [ "${RESTORE_NOFLUSH}x" != "yesx" ]; then
+		return
+	fi
+
+	case "${EXPLICIT_FLUSH}" in
+		auto)
+			FLUSH_RULES="`read_existing_rules`"
+			;;
+
+		yes:*)
+			FLUSH_RULES="`echo "${EXPLICIT_FLUSH}" | cut -d: -f2`"
+			;;
+		*)
+			return
+			;;
+	esac
+
+	IFS=","
+	for target in ${FLUSH_RULES}
+	do
+		local table="`echo "$target" | cut -f1 -d.`"
+		local chain="`echo "$target" | cut -f2 -d.`"
+		local err="`LANG=C ${IPTB_CMD} -t $table -F $chain 2>&1`"
+		# Don't stop on missing chain errors, as it could just be that
+		# the chain hasn't been created yet.
+		if [ "x$err" != "x" ] && [ "x$err" != "x${IPTB_CMD}: No chain/target/match by that name." ]; then
+			echo "When flushing $target: $err" >&2
+			return 1
+		fi
+	done
+	unset IFS
+}
+
+# Rules must be flushed before starting, when restarting, or when explicitly
+# requested.
+case "$1" in
+start|restart|reload|force-reload|flush)
+    flush_rules
+    ;;
+save|stop)
+    ;;
+*)
+    echo "Usage: $0 {start|restart|reload|force-reload|save|flush}" >&2
+    exit 1
+    ;;
+esac

@@ -1,0 +1,82 @@
+# Slovak translations for iptables-persistent package
+# Slovenské preklady pre balík iptables-persistent.
+# Copyright (C) 2012 THE iptables-persistent'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the iptables-persistent package.
+# Automatically generated, 2012.
+# Slavko <linux@slavino.sk>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: iptables-persistent 0.5.3\n"
+"Report-Msgid-Bugs-To: iptables-persistent@packages.debian.org\n"
+"POT-Creation-Date: 2011-01-15 20:39+0000\n"
+"PO-Revision-Date: 2012-04-11 18:56+0200\n"
+"Last-Translator: Slavko <linux@slavino.sk>\n"
+"Language-Team: slovenčina <debian-l10n-slovak@lists.debian.org>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-POFile-SpellExtra: iptables iptables-save rules ip6-save etc v4 IPv4 v6\n"
+"X-POFile-SpellExtra: IPv6\n"
+
+#. Type: boolean
+#. Description
+#: ../iptables-persistent.templates:2001
+msgid "Save current IPv4 rules?"
+msgstr "Uložiť aktuálne pravidlá IPv4?"
+
+#. Type: boolean
+#. Description
+#: ../iptables-persistent.templates:2001
+msgid ""
+"Current iptables rules can be saved to the configuration file /etc/iptables/"
+"rules.v4. These rules will then be loaded automatically during system "
+"startup."
+msgstr ""
+"Aktuálne pravidlá iptables môžu byť uložené do konfiguračného súboru /etc/"
+"iptables/rules.v4. Tieto pravidlá budú potom automaticky načítané pri štarte "
+"systému."
+
+#. Type: boolean
+#. Description
+#: ../iptables-persistent.templates:2001
+msgid ""
+"Rules are only saved automatically during package installation. See the "
+"manual page of iptables-save(8) for instructions on keeping the rules file "
+"up-to-date."
+msgstr ""
+"Pravidlá sú automaticky uložené len pri inštalácii balíka. Podrobnosti o "
+"tom, ako zachovať súbor s pravidlami v aktuálnom stave, nájdete v manuálovej "
+"stránke iptables-save(8)."
+
+#. Type: boolean
+#. Description
+#: ../iptables-persistent.templates:3001
+msgid "Save current IPv6 rules?"
+msgstr "Uložiť aktuálne pravidlá IPv6?"
+
+#. Type: boolean
+#. Description
+#: ../iptables-persistent.templates:3001
+msgid ""
+"Current iptables rules can be saved to the configuration file /etc/iptables/"
+"rules.v6. These rules will then be loaded automatically during system "
+"startup."
+msgstr ""
+"Aktuálne pravidlá iptables môžu byť uložené do konfiguračného súboru /etc/"
+"iptables/rules.v6. Tieto pravidlá budú potom automaticky načítané pri štarte "
+"systému."
+
+#. Type: boolean
+#. Description
+#: ../iptables-persistent.templates:3001
+msgid ""
+"Rules are only saved automatically during package installation. See the "
+"manual page of ip6tables-save(8) for instructions on keeping the rules file "
+"up-to-date."
+msgstr ""
+"Pravidlá sú automaticky uložené len pri inštalácii balíka. Podrobnosti o "
+"tom, ako zachovať súbor s pravidlami v aktuálnom stave, nájdete v manuálovej "
+"stránke ip6tables-save(8)."
