@@ -1,0 +1,2 @@
+etc/iptables
+usr/share/netfilter-persistent/plugins.d

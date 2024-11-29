@@ -1,0 +1,46 @@
+#!/bin/sh
+
+set -e
+
+# Can be dropped in Trixie
+if update-alternatives --query ipset.service 2>/dev/null; then
+  update-alternatives --remove-all ipset.service
+fi
+
+# Source debconf library
+. /usr/share/debconf/confmodule
+
+case "$1" in
+configure)
+  db_get ipset-persistent/autosave_done || true
+  if [ "x$RET" != "xtrue" ]; then
+    db_get ipset-persistent/autosave || true
+    if [ "x$RET" = "xtrue" ]; then
+      if which ipset >/dev/null; then
+        if ipset list >/dev/null; then
+          ipset save >/etc/iptables/ipsets
+        else
+          echo "IPset: Unable to save sets (module not loadable or other problem)"
+        fi
+      fi
+    fi
+
+    db_set ipset-persistent/autosave_done true || true
+  fi
+
+  ;;
+esac
+
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ]; then
+  # Ensure the drop-in is loaded
+  if [ -d /run/systemd/system ]; then
+    systemctl --system daemon-reload >/dev/null || true
+  fi
+fi
+
+# See #1036785
+if [ -f /etc/systemd/system/netfilter-persistent.service.d ]; then
+  rmdir --ignore-fail-on-non-empty /etc/systemd/system/netfilter-persistent.service.d
+fi
+
+#DEBHELPER#

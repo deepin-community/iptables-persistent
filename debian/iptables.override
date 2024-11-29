@@ -1,0 +1,2 @@
+[Install]
+Alias=iptables.service ip6tables.service

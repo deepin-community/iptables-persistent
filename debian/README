@@ -1,0 +1,22 @@
+netfilter-persistent and its plugins
+------------------------------------
+
+netfilter-persistent does no work on its own. You need the accompanying
+plugins (for example, iptables-persistent) to load and save filter rules.
+
+However, commands are run from netfilter-persistent. For example, to save
+all filter rules:
+
+   netfilter-persistent save
+
+or to load them:
+
+   netfilter-persistent start
+
+For more details, see `man netfilter-persistent`.
+
+The system service will try to load rules at startup if enabled, but by
+default it will not flush rules at shutdown. This behaviour can be changed
+by editing /etc/default/netfilter-persistent.
+
+ -- Jonathan Wiltshire <jmw@debian.org>  Sat, 02 Jan 2016 00:00:00 +0000

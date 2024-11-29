@@ -1,0 +1,11 @@
+Template: ipset-persistent/autosave
+Type: boolean
+Default: true
+_Description: Save current ipsets?
+ Current ipsets can be saved to the configuration
+ file /etc/iptables/ipsets. These ipsets will then be loaded automatically
+ during system startup.
+ .
+ Sets are only saved automatically during package installation. See the
+ manual page of ipset (8) for instructions on keeping the rules file
+ up-to-date.

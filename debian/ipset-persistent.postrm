@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+purge)
+	rm -rf /etc/iptables/ipsets
+;;
+esac
+
+# To register the drop-in's removal
+if [ "$1" = "remove" ] && [ -d /run/systemd/system ]; then
+	systemctl --system daemon-reload >/dev/null || true
+fi
+
+#DEBHELPER#

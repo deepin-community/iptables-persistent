@@ -1,5 +1,452 @@
-template-repository (1.0-1) unstable; urgency=medium
+iptables-persistent (1.0.22) unstable; urgency=medium
 
-  * Initial release
+  * [3e0ff9] add dh-sequence-movetousr to b-d (Closes: #1073670)
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Fri, 19 Jul 2024 22:36:49 +0200
+
+iptables-persistent (1.0.21) unstable; urgency=medium
+
+  [ Emmanuel BENOÎT ]
+  * [b33b0e] Support explicit, partial flushing of iptables chains
+  * [291b37] fix(iptb-expflush-plugin): use "," as a separator
+
+  [ gustavo panizzo ]
+  * [869bf7] Fix typo on ipset's template.
+    Thanks to Christian <chanlists@googlemail.com> (Closes: #1041781)
+  * [7f39a9] Remove empty dir left after a previous upgrade (Closes: #1036628)
+  * [72ea40] Do not flush user defined chains.
+    Thanks to Gabor Zsoldos <zsg@zalaszam.hu> (Closes: #1063844)
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Mon, 03 Jun 2024 20:41:11 +0200
+
+iptables-persistent (1.0.20) unstable; urgency=medium
+
+  [ Luca Boccassi ]
+  * [3d8a9b] Use aliases instead of overrides for alternative names
+    (Closes: #1036147)
+  * [418c74] Install drop-ins in /lib/ instead of /etc/ (Closes: #1036147)
+
+  [ gustavo panizzo ]
+  * [06509f] Handle obsolete conffile removal
+  * [633371] Remove obsolete dependency (lsb-base)
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Fri, 19 May 2023 13:27:33 +0200
+
+iptables-persistent (1.0.19) unstable; urgency=medium
+
+  * [49d9ca] Debconf templates translation to Romanian.
+    Thanks to Remus-Gabriel Chelu (Closes: #1031918)
+  * [b91289] Standards version 4.6.2 (no changes)
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Tue, 28 Feb 2023 08:02:38 +0100
+
+iptables-persistent (1.0.18) unstable; urgency=medium
+
+  * No source change upload to be built in the buildd
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Tue, 01 Nov 2022 21:51:35 +0100
+
+iptables-persistent (1.0.17) unstable; urgency=medium
+
+  * [e12f28] Test rules before loading them.
+    Thanks to Phillip Smith (Closes: 1022156)
+  * [1d3e87] Standards version 4.6.1.0 (no changes)
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Sat, 22 Oct 2022 17:13:17 +0200
+
+iptables-persistent (1.0.16+nmu1) unstable; urgency=medium
+
+   * Non-maintainer upload.
+   * No source change upload to rebuild with debhelper 13.10.
+
+ -- Michael Biebl <biebl@debian.org>  Sat, 15 Oct 2022 12:10:44 +0200
+
+iptables-persistent (1.0.16) unstable; urgency=medium
+
+  [ Mauricio Faria de Oliveira ]
+  * [36cf9e] Introduce options IP[6]TABLES_RESTORE_NOFLUSH
+    Thanks to Mauricio Faria de Oliveira (Closes: #998416).
+
+  [ gustavo panizzo ]
+  * [34d37b] Bump standards version, no changes required
+  * [98c9ec] Remove a very old migration from the preinst script
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Fri, 03 Dec 2021 15:29:12 +0100
+
+iptables-persistent (1.0.15) unstable; urgency=medium
+
+  * [b89d12] Fix warning message on the ipset plugin
+  * [9a8d08] Standards version 4.5.1 (no changes)
+  * [42af90] Fix the Vcs-Browser url
+  * [586d4f] Add Rules-Requires-Root: no to d/control
+  * [bd1a1a] Increase the debhelper-compat level
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Sun, 14 Feb 2021 07:49:44 +0000
+
+iptables-persistent (1.0.14) unstable; urgency=medium
+
+  * [401a9f] No longer load modules.
+    Thanks to Jérémie LEGRAND (Closes: 932196)
+  * [933938] Implement a new logic to flush firewall rules
+  * [824486] Add variable Pre-Depends as required by init-system-helpers and debhelper 12
+  * [3ed371] Run wrap-and-sort
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Fri, 13 Sep 2019 19:16:28 +0200
+
+iptables-persistent (1.0.13) unstable; urgency=medium
+
+  * Upload to unstable
+  * [30244a] Standards version 4.4.0 (no changes)
+  * [242e35] Provide the virtual systemd units iptables.service and
+    ipset.service.
+    Thanks to Laurent Bigonville for the bug report (Closes: #926927)
+  * [3a751c] Remove Jonathan Wiltshire as Maintainer and add myself
+  * [7303da] Add Documentation to the systemd unit
+  * [320e48] Use debhelper 12
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Mon, 26 Aug 2019 21:27:58 +0200
+
+iptables-persistent (1.0.12) experimental; urgency=medium
+
+  * [3ca86e] Use white space and tabs consistently
+  * [d5726c] Allow granular configuration for the save action
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Wed, 27 Mar 2019 14:34:28 +0800
+
+iptables-persistent (1.0.11) unstable; urgency=medium
+
+  * [e491d7] Make iptables-persistent to Pre-Depends on iptables.
+    Thanks to Herman van Rink (Closes: 921730)
+  * [cc7ba0] Standards version 4.3.0 (no changes)
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Sat, 09 Feb 2019 12:36:39 +0800
+
+iptables-persistent (1.0.10) unstable; urgency=medium
+
+  * [ded6eb] Set a sane PATH in all plugins
+  * [e65ed0] Find executables at run time and use them.
+    Thanks to Adrian Davey (Closes: #911833)
+  * [df9e4c] Use /bin/sh in ipset scripts
+  * [1d9dfa] Remove rc variables and exit code.
+    Thanks to Guillaume LUCAS (Closes: #836680)
+  * [968263] Fix typo introduced in 07df20dcbff91.
+    Thanks to Urs Breinlinger (Closes: #914155)
+  * [ce9a35] Remove obsolete calls to dh_installinit.
+    Thanks to Yuriy M. Kaminskiy (Closes: #819693)
+  * [aab568] Cleanup the systemd unit
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Sat, 24 Nov 2018 02:01:45 +0000
+
+iptables-persistent (1.0.9) unstable; urgency=medium
+
+  * [7348f0] Exit fast if IPv6 is disabled.
+    Thanks to Scott Smemsh (Closes: #780738)
+  * [fe7575] Do not load blacklisted modules.
+    Thanks to Jonathan Thibault (Closes: #748267)
+  * [07df20] Do not fail the scripts if modprobe fails.
+    Thanks to Nye Liu and Marc MAURICE (Closes: #794037, #720110)
+  * [a11723] Do not discard stderr from *-save and *-restore commands.
+    Thanks to Tony Finch (Closes: #859015)
+  * [3f8f61] Remove trailing space in debian/rules
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Fri, 19 Oct 2018 01:13:04 +0000
+
+iptables-persistent (1.0.8) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/changelog: Remove trailing whitespaces
+
+  [ gustavo panizzo ]
+  * [c4ed04] IPset: Ensure we can run ipset before try to save the rules
+  * [e6044e] Fix typo on the long description
+  * [4dd1c5] Standards version 4.2.1 (no changes)
+  * [01b2a7] Rename [gbp-dch] section to [dch] in debian/gbp.conf
+  * [5a7fca] Add the debian branch in debian/gbp.conf pointing to debian branch
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Thu, 11 Oct 2018 13:33:54 +0000
+
+iptables-persistent (1.0.7) unstable; urgency=medium
+
+  * Bump version of the package as required by dgit. See #801435.
+    Previous upload didn't make into the archive as it contained a new
+    binary package and I performed a source-only upload (which is not allowed).
+    To fix my previous mistake and keep using dgit a newer version of the
+    package as to be upload to both the archive and dgit.
+    Apologies in advance to those following to git or dgit repository.
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Fri, 03 Aug 2018 09:44:11 +0800
+
+iptables-persistent (1.0.6) unstable; urgency=medium
+
+  * [85b975] Add initial support for ipsets
+  * [fb975f] Add myself to uploaders
+  * [f99506] Rename git-dch section to dch in gbp.conf
+  * [b3d13a] Increase the standards version, no changes were required
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Thu, 02 Aug 2018 14:41:31 +0800
+
+iptables-persistent (1.0.5) unstable; urgency=medium
+
+  * Team upload.
+
+  [ gustavo panizzo ]
+  * Apply a patch from Ross Vandegrift <ross@kallisti.us> to solve an issue
+    when stopping the service. (Closes: #900022)
+  * Point VCS headers to salsa.debian.org
+  * Increase compat level to 11
+  * Drop build dependency on dh-systemd, as newer debhelper makes it obsolete
+  * Bumped standard version to 4.1.4, no changes were needed.
+  * Use a secure URI for copyright format
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Tue, 03 Jul 2018 18:27:31 +0800
+
+iptables-persistent (1.0.4+nmu2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Use the full path to executables when saving and restoring firewall
+    rules for both IP and IPv6. Thanks G.W. Haywood for the patch.
+    Closes (#857301)
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Sat, 18 Mar 2017 21:11:49 +0800
+
+iptables-persistent (1.0.4+nmu1) unstable; urgency=low
+
+  [ Jonathan Wiltshire ]
+  * Update debhelper to compat level 9
+  * Standards version 3.9.6 no changes needed.
+  * Re-tab plugins/15-ip4tables and plugins/25-ip6tables
+
+  [ gustavo panizzo ]
+  * Non-maintainer upload.
+  * Starts netfilter-persistent service before network-pre.target,
+    as suggested by systemd upstream. Thanks to Patrick Schleizer
+    (Closes: #829640).
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Sun, 21 Aug 2016 13:05:39 +0800
+
+iptables-persistent (1.0.4) unstable; urgency=medium
+
+  * [d52b9e] During flush, set policy before flushing rules (Closes: #749790)
+  * [5d962d] Suggest iptables-persistent (Closes: #766940)
+  * [379050] Stop rules files being world-readable.
+    Thanks to Bernhard Thaler (Closes: #764645)
+  * [110c78] Rewrite README, install for both packages (Closes: #807285)
+  * [c2f464] Remove Andreas from uploads - thanks for your contributions!
+  * [e5ea0b] Update VCS links
+  * [b9c096] Weaken systemd dependency on systemd-modules-load.service
+    (Closes: #780407)
+
+ -- Jonathan Wiltshire <jmw@debian.org>  Sat, 02 Jan 2016 19:45:51 +0000
+
+iptables-persistent (1.0.3) unstable; urgency=medium
+
+  * [b7c661] systemd: start after local filesystem is available
+    (Closes: #760424)
+
+ -- Jonathan Wiltshire <jmw@debian.org>  Sat, 27 Dec 2014 11:04:58 +0000
+
+iptables-persistent (1.0.2) unstable; urgency=medium
+
+  * [5c4390] Update VCS URLs
+  * [ca8e27] Properly set systemd dependencies (Closes: #747949)
+  * [85c57d] Have plugins depend on the source version of the main loader
+
+ -- Jonathan Wiltshire <jmw@debian.org>  Thu, 28 Aug 2014 19:20:20 -0700
+
+iptables-persistent (1.0.1) unstable; urgency=high
+
+  * [8ceea8] Break systemd dependency loop by disabling default
+    dependencies, and depending explicitly on systemd-modules-load
+    (Closes: #665720)
+
+ -- Jonathan Wiltshire <jmw@debian.org>  Thu, 08 May 2014 13:41:49 +0100
+
+iptables-persistent (1.0) unstable; urgency=low
+
+  * [8be057] Rewrite main program entirely:
+    - new plugin architecture and binary (Enables: #693177, #697088)
+    - systemd support (Closes: #665720)
+    - packaging split into netfilter-persistent and iptables-persistent
+  * [72c333] Standards version 3.9.5
+  * [2d1b82] Start in runlevel S (Closes: #672296)
+
+ -- Jonathan Wiltshire <jmw@debian.org>  Sat, 19 Apr 2014 20:05:36 +0100
+
+iptables-persistent (0.5.7) unstable; urgency=low
+
+  * [e7534a] Fix bashism in debian/iptables-persistent.init.
+    Thanks to Andreas Rütten (Closes: #683789)
+
+ -- Jonathan Wiltshire <jmw@debian.org>  Fri, 04 Jan 2013 19:17:00 +0000
+
+iptables-persistent (0.5.6) unstable; urgency=low
+
+  * [6b6358] Instead of checking on modules, test a working iptables more
+    directly (Closes: #679840)
+  * [1db63c] Remove dependency on kmod
+
+ -- Andreas Rütten <AndreasRuetten@gmx.de>  Thu, 02 Aug 2012 22:50:05 +0200
+
+iptables-persistent (0.5.5) unstable; urgency=low
+
+  * Regressions were found in the previous release, this version fixes them
+
+  [ Andreas Rütten ]
+  * [e2736e] Fix postinst fails with legacy boot ordering due to wrong call
+    to update-rc.d (Closes: #651838)
+  * [7ee7cc] Add Andreas Rütten to Uploaders
+
+  [ Jonathan Wiltshire ]
+  * [e823c4] iptables-persistent.postinst: check return value of modprobe
+    before loading rules
+  * [575176] Add dependency on kmod for calls to modprobe in postinst.
+    Thanks to Hideki Yamane (Closes: #656348)
+  * [24d67d] Pre-Depending on a sufficient version of dpkg is no longer
+    necessary (Closes: #659765)
+  * [65a9d7] Guard against moving rules files around in preinst/abort-upgrade
+
+ -- Jonathan Wiltshire <jmw@debian.org>  Sat, 30 Jun 2012 19:52:36 +0100
+
+iptables-persistent (0.5.4) unstable; urgency=low
+
+  [ Jonathan Wiltshire ]
+  * Acknowledge NMU, thanks Christian
+
+  [ Andreas Rütten ]
+  * [15dd48] Remove trailing whitespace in debian/copyright
+  * [be22ca] Fix out-of-date-copyright-format-uri
+  * [fa8499] Fix init.d-script-missing-lsb-description
+  * [125cb4] Fix obsolete-field-in-dep5-copyright
+  * [5502af] Bump Standards-Version to 3.9.3, no changes needed
+  * [7fc88f] Replace the utilisation of dpkg-maintscript-helper by a simple mv
+    (Closes: #665813)
+  * [bed2d6] Fix insserv issue if upgrading from <=0.5.2 (Closes: #665814)
+
+ -- Jonathan Wiltshire <jmw@debian.org>  Sat, 30 Jun 2012 12:14:07 +0100
+
+iptables-persistent (0.5.3+nmu1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix pending l10n issues. Debconf translations:
+    - Dutch; (Jeroen Schot).  Closes: #659362
+    - Slovak (Slavko).  Closes: #668412
+    - Polish (Michał Kułach).  Closes: #669035
+
+ -- Christian Perrier <bubulle@debian.org>  Wed, 25 Apr 2012 08:30:00 +0200
+
+iptables-persistent (0.5.3) unstable; urgency=low
+
+  * [09d9ae] Check for loaded modules in postinst (Closes: #637852)
+  * [521544] Fix Default-Start and Default-Stop fields of the LSB header in
+    the init script. Thanks to Andreas Rütten (Closes: #650001)
+  * [d17b2f] Revert checking for loaded modules at startup, as this isn't
+    necessary in newer versions ip{,6}tables-restore - instead check that there
+    is a rules file to be loaded. Ensure at least ip{,6}table_filter is loaded
+    during save (Closes: #637796)
+  * [71aa52] Tidy formatting and spacing in iptables-persistent.init
+  * [3fe51a] Debconf translations to Spanish.
+    Thanks to Francisco Javier Cuadrado (Closes: #645523)
+
+ -- Jonathan Wiltshire <jmw@debian.org>  Mon, 28 Nov 2011 23:19:39 +0000
+
+iptables-persistent (0.5.2) unstable; urgency=low
+
+  * [1019a3] Debconf translation to Japanese.
+    Thanks to Hideki Yamane (Closes: #626385)
+  * [a29b06] debian/po: refresh .po files
+  * [3780d5] Do not attempt to save or load rules if the appropriate module
+    is not loaded (Closes: #619626)
+  * [1c14c5] Do not include blank rules.* files; instead, simply remove them
+    on purge if they have been created (Closes: #612278)
+  * [ec6628] Implement 'flush' command to init script (Closes: #634368)
+  * [428b95] Standards version 3.9.2 (no changes)
+
+ -- Jonathan Wiltshire <jmw@debian.org>  Sat, 13 Aug 2011 22:23:46 +0100
+
+iptables-persistent (0.5.1) unstable; urgency=low
+
+  * [f62ef8] Depend on lsb-base (Closes: #608531)
+  * [82ba5d] Improve package description
+  * [90bce5] Only autosave rules on first package installation, not on
+    upgrades
+  * [f60a5e] Debconf templates and debian/control reviewed by the
+    debian-l10n-english team as part of the Smith review project.
+    (Closes: #610169)
+  * [f542f6] Debconf translation to Danish (Closes: #610264)
+    - thanks to Joe Dalton
+  * [f7b486] Debconf translation to Portugese (Closes: #610277)
+    - thanks to Américo Monteiro
+  * [f73645] Debconf translation to Czech (Closes: #610325)
+    - thanks to Michal Simunek
+  * [3ac07a] Debconf translation to Italian- thanks to Vincenzo
+    Campanella
+  * [1677c1] Debconf translation to Russian (Closes: #610643)
+    - thanks to Yuri Kozlov
+  * [c4a068] Debconf translation to French (Closes: #610677)
+    - thanks to Steve Petruzzello
+  * [70cfba] Debconf translation to German (Closes: #610646)
+    - thanks to Chris Leick
+  * [d0a8f6] Debconf translation to Swedish (Closes: #611150)
+    - thanks to Martin Bagge
+  * [cbdac5] Debconf translation to Brazillian Portugese
+    (Closes: #611437)- thanks to Adriano Rafael Gomes
+  * [1d3bf1] Debconf translation to Spanish (Closes: #611714)
+    - thanks to Ricardo Fraile
+  * [0eb3ca] Correctly save IPv6 rules during startup (Closes: #613368)
+
+ -- Jonathan Wiltshire <jmw@debian.org>  Fri, 04 Mar 2011 10:18:07 +0000
+
+iptables-persistent (0.5) unstable; urgency=low
+
+  * [e1e1a6] debian/rules: fix regression installing init script for
+    systems that have not been converted to dependency-based start
+    (Closes: #608383)
+  * [ac615c] Load rules from /etc/iptables/rules.v4 instead of
+    /etc/iptables/rules for consistency, and rename the rules file
+    appropriately to keep local modifications. (Closes: #608382)
+  * [9c0df7] During installation, prompt the user to save the current
+    rulesets
+  * [a48ed9] iptables-persistent.init: show useful progress messages
+    using LSB functions, and implement a "save" action for the lazy^w
+    efficient admin
+  * [6db04e] Update README
+
+ -- Jonathan Wiltshire <jmw@debian.org>  Fri, 31 Dec 2010 00:32:00 +0000
+
+iptables-persistent (0.0.20101230) unstable; urgency=low
+
+  * [b53635] New maintainer (Closes: #599478)
+  * [7cc2c8] Convert to a native package, rationale in README.source
+  * [874b93] debian/control: make short description policy-compliant
+  * [193b89] debian/rules: convert to tiny-style dh rules
+  * [3ce686] Improvements to iptables-persistent.init:
+      - load IPv6 rules if available
+      - guarantee start before network interfaces
+      - implement reload, force-reload and restart
+      - return the exit status of iptables-restore to catch
+        rule file errors
+    (Closes: #599478, #541459) - thanks to Christoph Anton Mitterer
+  * [00a4b3] Add debian/gbp.conf with appropriate options
+  * [07781c] Remove debian/watch
+  * [244039] Update debian/README
+  * [69443b] Update debian/copyright
+  * [42dc6f] Add Vcs-* fields to debian/control
+
+ -- Jonathan Wiltshire <jmw@debian.org>  Thu, 30 Dec 2010 01:22:41 +0000
+
+iptables-persistent (0.0.20100801) unstable; urgency=low
+
+  * New Maintainer (Closes: #591077)
+  * Updated Standards-Version to 3.9.1
+  * debian/copyright:
+    + Make copyright file DEP5 compliant
+  * deian/init.d
+    + Renamed to iptables-persistent.init
+
+ -- Chris Silva <racerx@makeworld.com>  Sun, 01 Aug 2010 21:34:25 -0500
+
+iptables-persistent (0.0.20090701) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Simon Richter <sjr@debian.org>  Wed, 01 Jul 2009 13:43:43 +0200

@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -e
+
+
+case "$1" in
+    install|upgrade)
+    if [ -e /etc/iptables/rules ]; then
+        if [ -e /etc/iptables/rules.v4 ]; then
+            mv -f /etc/iptables/rules /etc/iptables/rules.v4.dpkg-old
+        else
+            mv -f /etc/iptables/rules /etc/iptables/rules.v4
+        fi
+    fi
+	;;
+
+    abort-upgrade)
+	;;
+
+    *)
+        echo "preinst called with unknown argument \`$1'" >&2
+        exit 1
+	;;
+esac
+
+#DEBHELPER#

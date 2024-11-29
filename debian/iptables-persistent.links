@@ -1,0 +1,2 @@
+usr/share/netfilter-persistent/iptb-expflush-plugin        usr/share/netfilter-persistent/plugins/12-iptb4-explicit-flush
+usr/share/netfilter-persistent/iptb-expflush-plugin        usr/share/netfilter-persistent/plugins/20-iptb6-explicit-flush

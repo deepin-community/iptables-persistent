@@ -1,0 +1,4 @@
+#! /usr/bin/dh-exec
+plugins/10-ipset         usr/share/netfilter-persistent/plugins.d/
+plugins/40-ipset         usr/share/netfilter-persistent/plugins.d/
+debian/ipset.override => lib/systemd/system/netfilter-persistent.service.d/ipset.conf
